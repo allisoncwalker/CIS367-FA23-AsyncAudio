@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Async Audio</title>
-
-     
+     <link rel="stylesheet" href="style.css">
     <!-- Tailwind CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
@@ -21,10 +21,12 @@
     />
 
     <link rel="stylesheet" href="output.css" />
+    <link rel="stylesheet" href="input.css" />
   </head>
-  <body class="bg-gradient-to-b from-red-400 to-red-600 flex items-center justify-center h-screen text-center font-roboto" >
-  <div class="p-5 w-96 fit-content rounded-xl shadow-2xl">
+  <body class="colors bg-gradient-to-b from-red-400 to-red-600 flex items-center justify-center h-screen text-center font-roboto" >
+  <div class="music-container p-5 w-96 fit-content rounded-xl shadow-2xl" id="music-container"> 
   <div>
+  <!-- Buttons for looks -->
   <button class="relative top-6 text-2xl right-36">
     <i class="fa-solid fa-chevron-down" style="color: #ffffff;"></i>
   </button>
@@ -34,30 +36,50 @@
   </button>
   </div>
 
-  <div class="w-full h-56 mb-4">
-  <img src="albumart/salsa.jpg" alt="" class=" object-cover rounded-l">
+  <div class=" image-container w-full h-56 mb-4">
+  <img src="albumart/salsa.jpg" alt="music-cover" id="cover" class="object-cover rounded-l">
   </div>
+
+  <audio src="songs/01 Salsa_ After-Work Party.mp3" id="audio"></audio>
+
+ 
   <!-- 01Salsa_After-Work Party.mp3 -->
-  <div class="mt-36">
+  <div class="music-info mt-36">
+    <!-- <h4 id="title"></h4> -->
+    <h2 class="flex †ext-7xl font-bold text-white" id="title"></h2>
+    <h2 class="flex opacity-60 text-white"id="artist"></h2>
+    <div class="progress-container" id="progress-container">
+      <div class="progress" id="progress"></div>
+    </div>
+  </div>
+
+  <!-- <div class=" mt-36">
+  <div class="progress-container">
+    <div class="progress"></div>
+  </div>
   <h2 class="flex †ext-7xl font-bold text-white">Salsa After Work Party</h2>
   <h2 class="flex opacity-60 text-white">Dee Yan-Key</h2>
-  </div>
-<!-- Play  -->
-  <div class="flex justify-center mx-auto ">
+  </div> -->
+  
+  <div class="navigation">
+<!-- Prev  -->
+  <div id="prev" class="flex justify-center mx-auto action-btn">
    <button class="m-10 text-4xl">
     <i class="fa-solid fa-backward-step" style="color: #ffffff;"></i>
   </button>
-  <button class="text-6xl ">
+<!-- Play  -->
+  <button id="play" class="text-6xl action-btn action-btn-big">
     <i class="fa-solid fa-circle-play" style="color: #ffffff;"></i>
   </button>
-   <button class="m-10 text-4xl">
+<!-- Next  -->
+   <button id="next" class="m-10 text-4xl action-btn">
     <i class="fa-solid fa-forward-step" style="color: #ffffff;"></i>
   </button></div>
   <div></div>
   <button class="relative text-xl left-32">
     <i class="fa-solid fa-arrow-up-from-bracket" style="color: #ffffff;"></i>
   </button>
-
+  </div>
   
   <!-- </div >
   <div class="b p-5 w-96 rounded-xl shadow-2xl">
