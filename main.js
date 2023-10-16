@@ -2,7 +2,7 @@ const musicContainer = document.getElementById('.music-container');
 const playBtn = document.getElementById('play');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
-
+const artistlabel = document.getElementById('artist');
 const audio = document.getElementById('audio');
 const progress = document.getElementById('progress');
 const progressContainer = document.getElementById('progress-container');
@@ -13,28 +13,28 @@ const durTime = document.querySelector('#durTime');
 
 //Song Titles
 const songs= [ 
-'Aidan',
-'April Kisses',
-'Autumn Sun',
-'Best Part of Me',
-'Better Days',
-'Colorful World',
-'Disco Ultralounge',
-'Fly or Die',
-'Fraggle',
-"I Can't Make You Love Me",
-'Just Relax',
-'MEET ME AT THE TOP',
-'Paranormal is Real',
-'Perfect',
-'Polarity',
-'Salsa After-Work Party',
-'Upbeat Funk Pop',
-'Voices of Spring',
-'Your Shoulder']
+'aidan',
+'april_kisses',
+'autumn_sun',
+'bestPart',
+'better_days',
+'colorful_world',
+'disco_ultralounge',
+'fly_or_die',
+'fraggle',
+"i_cant_make_you_love_me",
+'just_relax',
+'MEET_ME_AT_THE_TOP',
+'paranormal',
+'perfect',
+'polarity',
+'salsa',
+'upbeat_funk',
+'voicesofspring',
+'Your_Shoulder']
 
-//Authors 
-const authors = [
+//artists 
+const artists = [
     'Jonathan Ceaser',
     'Eddie Lang',
     'Bryce Greene',
@@ -80,18 +80,17 @@ const authors = [
 //Keep track of songs
 let songIndex = 0
 
-//Keep track of authors
-let authorIndex = 0
+//Keep track of artists
 
 //Initially load songinfo DOM
-loadSong(songs[songIndex], authors[authorIndex])
+loadSong(songs[songIndex], artists[songIndex])
 
 //Updatesong Details
 function loadSong(song, artist){
     title.innerText = song
-    artist.innerText = artist
-    audio.src ='music/${song}.mp3'
-    cover.src ='image/${song}.jpg'
+    artistlabel.innerText = artist
+    audio.src =`music/${song}.mp3`
+    cover.src =`albumart/${song}.jpg`
 }
 
 function playSong(){
@@ -111,26 +110,16 @@ function pauseSong(){
 
 function prevSong(){
     songIndex--
-    authorIndex--
-
-    if(songIndex > songs.length - 1){
-        songIndex = 0
-        authorIndex = 0
-    }
-    loadSong(songs[songIndex],authors[authorIndex])
+    songIndex = songIndex%songs.length
+    loadSong(songs[songIndex],artists[songIndex])
 
     playSong()
 }
 
 function nextSong(){
     songIndex++
-    authorIndex++
-
-    if(songIndex < 0){
-        songIndex = song.length - 1
-        authorIndex = song.length - 1
-    }
-    loadSong(songs[songIndex], author[authorIndex])
+    songIndex = songIndex%songs.length
+    loadSong(songs[songIndex], artists[songIndex])
 
     playSong()
 }
@@ -138,7 +127,7 @@ function nextSong(){
 function updateProgress(e){
     const {duration, currentTime}= e.srcElement
     const progressPercent = (currentTime / duration) * 100
-    progress.style.width = '${progressPercent}%'
+    progress.style.width = `${progressPercent}%`
 }
 
 function setProgress(e){

@@ -5,13 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Async Audio</title>
-     <link rel="stylesheet" href="style.css">
-    <!-- Tailwind CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+    <!-- Stylye Sheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="output.css" />
+    <link rel="stylesheet" href="input.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -20,81 +18,64 @@
       referrerpolicy="no-referrer"
     />
 
-    <link rel="stylesheet" href="output.css" />
-    <link rel="stylesheet" href="input.css" />
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+
   </head>
   <body class="colors bg-gradient-to-b from-red-400 to-red-600 flex items-center justify-center h-screen text-center font-roboto" >
-  <div class="music-container p-5 w-96 fit-content rounded-xl shadow-2xl" id="music-container"> 
-  <div>
-  <!-- Buttons for looks -->
-  <button class="relative top-6 text-2xl right-36">
-    <i class="fa-solid fa-chevron-down" style="color: #ffffff;"></i>
-  </button>
-  <h1 class="relative bottm-2 text-white text-xs text-center">Playing suggested song</h1>
-  <button class="relative bottom-6 text-3xl left-36">
-    <i class="fa-solid fa-ellipsis" style="color: #ffffff;"></i>
-  </button>
-  </div>
+  <div class="music-container w-96 fit-content rounded-xl shadow-2xl" id="music-container">
 
-  <div class=" image-container w-full h-56 mb-4">
-  <img src="albumart/salsa.jpg" alt="music-cover" id="cover" class="object-cover rounded-l">
-  </div>
-
-  <audio src="songs/01 Salsa_ After-Work Party.mp3" id="audio"></audio>
-
- 
-  <!-- 01Salsa_After-Work Party.mp3 -->
-  <div class="music-info mt-36">
-    <!-- <h4 id="title"></h4> -->
-    <h2 class="flex †ext-7xl font-bold text-white" id="title"></h2>
-    <h2 class="flex opacity-60 text-white"id="artist"></h2>
-    <div class="progress-container" id="progress-container">
-      <div class="progress" id="progress"></div>
+    <div>
+      <!-- Buttons for looks -->
+      <button class="relative top-6 text-2xl right-36">
+        <i class="fa-solid fa-chevron-down" style="color: #ffffff;"></i>
+      </button>
+      <h1 class="relative bottm-2 text-white text-xs text-center">Playing suggested song</h1>
+      <button class="relative bottom-6 text-3xl left-36">
+        <i class="fa-solid fa-ellipsis" style="color: #ffffff;"></i>
+      </button>
     </div>
-  </div>
+   <section class="music-container" id="music-container">
 
-  <!-- <div class=" mt-36">
-  <div class="progress-container">
-    <div class="progress"></div>
+     <div class=" image-container w-full h-56 mb-4">
+       <img src="albumart/salsa.jpg" alt="music-cover" id="cover" class="object-cover rounded-l">
+      </div>
+      
+      <audio src="songs/salsa.mp3" id="audio"></audio>
+      
+      
+      <div class="music-info mt-40 mx-2">
+        <h2 class="flex †ext-7xl font-bold text-white" id="title"></h2>
+        <h2 class="flex opacity-60 text-white"id="artist"></h2>
+        <div class="progress-container" id="progress-container">
+          <div class="progress" id="progress"></div>
+        </div>
+      </div>
+      
+      <div class="navigation">
+        <!-- Prev  -->
+        <div id="prev" class="flex justify-center mx-auto action-btn">
+          <button class="m-10 text-4xl">
+          <i class="fa-solid fa-backward-step" style="color: #ffffff;"></i>
+        </button>
+        <!-- Play  -->
+        <button id="play" class="text-6xl action-btn action-btn-big">
+          <i class="fa-solid fa-circle-play" style="color: #ffffff;"></i>
+        </button>
+        <!-- Next  -->
+        <button id="next" class="m-10 text-4xl action-btn">
+          <i class="fa-solid fa-forward-step" style="color: #ffffff;"></i>
+        </button></div>
+      </div>
+    </section> 
+    </div>
+    
   </div>
-  <h2 class="flex †ext-7xl font-bold text-white">Salsa After Work Party</h2>
-  <h2 class="flex opacity-60 text-white">Dee Yan-Key</h2>
-  </div> -->
   
-  <div class="navigation">
-<!-- Prev  -->
-  <div id="prev" class="flex justify-center mx-auto action-btn">
-   <button class="m-10 text-4xl">
-    <i class="fa-solid fa-backward-step" style="color: #ffffff;"></i>
-  </button>
-<!-- Play  -->
-  <button id="play" class="text-6xl action-btn action-btn-big">
-    <i class="fa-solid fa-circle-play" style="color: #ffffff;"></i>
-  </button>
-<!-- Next  -->
-   <button id="next" class="m-10 text-4xl action-btn">
-    <i class="fa-solid fa-forward-step" style="color: #ffffff;"></i>
-  </button></div>
-  <div></div>
-  <button class="relative text-xl left-32">
-    <i class="fa-solid fa-arrow-up-from-bracket" style="color: #ffffff;"></i>
-  </button>
-  </div>
-  
-  <!-- </div >
-  <div class="b p-5 w-96 rounded-xl shadow-2xl">
-    <div class="">Lyrics</div>
-    <button class=" ">
-      <i class="fa-solid fa-arrow-up-from-bracket" style="color: #ffffff;"></i>
-    </button>
-    <button class="">
-      <i class="fa-solid fa-up-right-and-down-left-from-center" style="color: #ffffff;"></i>
-    </button>
-    <div></div>
-  </div> -->
-
-    <!-- <i class="fa-solid fa-play"></i> -->
-
     <script src="main.js"></script>
   </body>
 </html>
