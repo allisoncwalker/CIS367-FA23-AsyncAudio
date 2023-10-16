@@ -1,4 +1,4 @@
-const musicContainer = document.getElementById('.music-container');
+const musicContainer = document.getElementById('music-container');
 const playBtn = document.getElementById('play');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
@@ -10,6 +10,7 @@ const title = document.getElementById('title');
 const cover = document.getElementById('cover');
 const currTime = document.querySelector('#currTime');
 const durTime = document.querySelector('#durTime');
+
 
 //Song Titles
 const songs= [ 
@@ -89,19 +90,19 @@ loadSong(songs[songIndex], artists[songIndex])
 function loadSong(song, artist){
     title.innerText = song
     artistlabel.innerText = artist
-    audio.src =`music/${song}.mp3`
+    audio.src =`songs/${song}.mp3`
     cover.src =`albumart/${song}.jpg`
 }
 
 function playSong(){
-    musicContantainer.classList.add('play')
+    musicContainer.classList.add('play')
     playBtn.querySelector('i.fas').classList.remove('fa-circle-play')
     playBtn.querySelector('i.fas').classList.add('fa-circle-pause')
 
     audio.play()
 }
 function pauseSong(){
-    musicContantainer.classList.remove('play')
+    musicContainer.classList.remove('play')
     playBtn.querySelector('i.fas').classList.add('fa-circle-play')
     playBtn.querySelector('i.fas').classList.remove('fa-circle-pause')
 
@@ -109,18 +110,26 @@ function pauseSong(){
 }
 
 function prevSong(){
-    songIndex--
-    songIndex = songIndex%songs.length
-    loadSong(songs[songIndex],artists[songIndex])
+    songIndex--;
+    // songIndex = songIndex%songs.length
 
-    playSong()
+  if (songIndex < 0) {
+    songIndex = songs.length - 1;
+  }
+
+  loadSong(songs[songIndex],artists[songIndex])
+  playSong()
+
 }
+    // songIndex = songIndex%songs.length
 
 function nextSong(){
-    songIndex++
-    songIndex = songIndex%songs.length
-    loadSong(songs[songIndex], artists[songIndex])
-
+    songIndex++;
+    // songIndex = songIndex%songs.length
+    if (songIndex > 0) {
+        songIndex = songs.length - 1;
+    }
+    loadSong(songs[songIndex],artists[songIndex])
     playSong()
 }
 
