@@ -32,7 +32,7 @@ const songs= [
 'salsa',
 'upbeat_funk',
 'voicesofspring',
-'Your_Shoulder']
+'Your_Shoulder'];
 
 //artists 
 const artists = [
@@ -54,7 +54,7 @@ const artists = [
     'Dee Yan-Key',
     'Scott Holmes Music',
     'Johann Strauss',
-    'Kaitlyn Thompson']
+    'Kaitlyn Thompson'];
 
     // colors = [
     //     'linear-gradient(to bottom, #b45309, #111827)',
@@ -79,34 +79,34 @@ const artists = [
     // ]
 
 //Keep track of songs
-let songIndex = 0
+let songIndex = 0;
 
 //Keep track of artists
 
 //Initially load songinfo DOM
-loadSong(songs[songIndex], artists[songIndex])
+loadSong(songs[songIndex], artists[songIndex]);
 
 //Updatesong Details
 function loadSong(song, artist){
-    title.innerText = song
-    artistlabel.innerText = artist
-    audio.src =`songs/${song}.mp3`
-    cover.src =`albumart/${song}.jpg`
+    title.innerText = song;
+    artistlabel.innerText = artist;
+    audio.src =`songs/${song}.mp3`;
+    cover.src =`albumart/${song}.jpg`;
 }
 
 function playSong(){
-    musicContainer.classList.add('play')
-    playBtn.querySelector('i.fas').classList.remove('fa-circle-play')
-    playBtn.querySelector('i.fas').classList.add('fa-circle-pause')
+    musicContainer.classList.add('play');
+    playBtn.querySelector('i.fas').classList.remove('fa-circle-play');
+    playBtn.querySelector('i.fas').classList.add('fa-circle-pause');
 
-    audio.play()
+    audio.play();
 }
 function pauseSong(){
-    musicContainer.classList.remove('play')
-    playBtn.querySelector('i.fas').classList.add('fa-circle-play')
-    playBtn.querySelector('i.fas').classList.remove('fa-circle-pause')
+    musicContainer.classList.remove('play');
+    playBtn.querySelector('i.fas').classList.remove('fa-circle-pause');
+    playBtn.querySelector('i.fas').classList.add('fa-circle-play');
 
-    audio.pause()
+    audio.pause();
 }
 
 function prevSong(){
@@ -117,8 +117,8 @@ function prevSong(){
     songIndex = songs.length - 1;
   }
 
-  loadSong(songs[songIndex],artists[songIndex])
-  playSong()
+  loadSong(songs[songIndex],artists[songIndex]);
+  playSong();
 
 }
     // songIndex = songIndex%songs.length
@@ -126,25 +126,27 @@ function prevSong(){
 function nextSong(){
     songIndex++;
     // songIndex = songIndex%songs.length
-    if (songIndex > 0) {
-        songIndex = songs.length - 1;
-    }
-    loadSong(songs[songIndex],artists[songIndex])
-    playSong()
+    if (songIndex > songs.length - 1) {
+        songIndex = 0;
+      }
+    
+      loadSong(songs[songIndex],artists[songIndex]);
+    
+      playSong();
 }
 
 function updateProgress(e){
-    const {duration, currentTime}= e.srcElement
-    const progressPercent = (currentTime / duration) * 100
-    progress.style.width = `${progressPercent}%`
+    const { duration, currentTime } = e.srcElement;
+    const progressPercent = (currentTime / duration) * 100;
+    progress.style.width = `${progressPercent}%`;
 }
 
 function setProgress(e){
-    const width = this.clientWidth
-    const clickX = e.offsetX
-    const duration = audio.duration
-
-    audio.currentTime = (clickX / width) *duration
+    const width = this.clientWidth;
+    const clickX = e.offsetX;
+    const duration = audio.duration;
+  
+    audio.currentTime = (clickX / width) * duration;
 }
 
 //get duration & currentTime for Time of song
@@ -200,12 +202,14 @@ function DurTime (e) {
 		 	sec_d = sec_d <10 ? '0'+sec_d:sec_d;
 		 }
 	} 
+
 	// define seconds duration
 	
 	get_sec_d (duration);
 
 	// change duration DOM
 	durTime.innerHTML = min_d +':'+ sec_d;
+		
 		
 };
 
@@ -220,18 +224,18 @@ playBtn.addEventListener('click', () => {
     }
   });
   
-  // Change song
-  prevBtn.addEventListener('click', prevSong);
-  nextBtn.addEventListener('click', nextSong);
-  
-  // Time/song update
-  audio.addEventListener('timeupdate', updateProgress);
-  
-  // Click on progress bar
-  progressContainer.addEventListener('click', setProgress);
-  
-  // Song ends
-  audio.addEventListener('ended', nextSong);
-  
-  // Time of song
-  audio.addEventListener('timeupdate',DurTime);
+// Change song
+prevBtn.addEventListener('click', prevSong);
+nextBtn.addEventListener('click', nextSong);
+
+// Time/song update
+audio.addEventListener('timeupdate', updateProgress);
+
+// Click on progress bar
+progressContainer.addEventListener('click', setProgress);
+
+// Song ends
+audio.addEventListener('ended', nextSong);
+
+// Time of song
+audio.addEventListener('timeupdate',DurTime);

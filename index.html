@@ -26,7 +26,7 @@
     
 
   </head>
-  <body class="colors bg-gradient-to-b from-red-400 to-red-600 flex items-center justify-center h-screen text-center font-roboto" >
+  <body class="colors bg-gradient-to-b from-red-400 to-red-600 flex items-center justify-center text-center font-roboto" >
   <div class="music-container w-96 fit-content rounded-xl shadow-2xl" id="music-container">
 
     <div>
@@ -39,28 +39,31 @@
         <i class="fa-solid fa-ellipsis" style="color: #ffffff;"></i>
       </button>
     </div>
+
    <section class="music-container" id="music-container">
 
-     <div class=" image-container w-full h-56 mb-4">
+    <!-- Album Cover -->
+    <div class=" image-container w-full h-56 mb-4">
        <img src="albumart/salsa.jpg" alt="music-cover" id="cover" class="object-cover rounded-l">
       </div>
       
-      <audio src="songs/salsa.mp3" id="audio"></audio>
+    <!-- Audio -->
+    <audio src="songs/salsa.mp3" id="audio"></audio>
       
-      
-      <div class="music-info mt-40 mx-2">
-        <h2 class="flex †ext-7xl font-bold text-white" id="title"></h2>
-        <h2 class="flex opacity-60 text-white"id="artist"></h2>
-        <div class="progress-container" id="progress-container">
-          <div class="progress" id="progress "></div>
+     
+    <div class="music-info mt-40 mx-2">
+      <h2 class="flex †ext-7xl font-bold text-white" id="title"></h2>
+      <h2 class="flex opacity-60 text-white"id="artist"></h2>
+      <div class="progress-container" id="progress-container">
+        <div class="progress" id="progress "></div>
           <!-- <div class="durTime"></div> -->
-        </div>
       </div>
+    </div>
       
       <div class="navigation">
-        <!-- Prev  -->
-        <div id="prev" class="flex justify-center mx-auto action-btn">
-          <button class="m-10 text-4xl">
+        <!-- <div class="flex justify-center mx-auto action-btn"> -->
+          <!-- Prev  -->
+          <button id="prev" class="m-10 text-4xl">
           <i class="fas fa-solid fa-backward-step" style="color: #ffffff;"></i>
         </button>
         <!-- Play  -->
